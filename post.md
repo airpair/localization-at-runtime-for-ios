@@ -14,7 +14,7 @@ We want to call the standard method:
 label.text = NSLocalizedString("Once upon a time", comment: "")
 ```
 
-but internally we want to change its implement so that it will read from the correct strings file. What this method does is to call NSBundle's localizedStringForKey:value:table: so this is what we must replace. To do that we will use Method Swizzling which is described in an excellent manner by NSHipster.  This is essentially telling the runtime to replace one method of a class with a custom one so that when the original method is called, the custom gets triggered underneath. It is a feature of Objective-C that has found its way into Swift (I guess due to popular demand). We will do this in the AppDelegate for lack of a better place*.
+but internally we want to change its implement so that it will read from the correct strings file. What this method does is to call NSBundle's localizedStringForKey:value:table: so this is what we must replace. To do that we will use Method Swizzling which is described in an excellent manner by [NSHipster](http://nshipster.com/method-swizzling/ "Method Swizzling").  This is essentially telling the runtime to replace one method of a class with a custom one so that when the original method is called, the custom gets triggered underneath. It is a feature of Objective-C that has found its way into Swift (I guess due to popular demand). We will do this in the AppDelegate for lack of a better place*.
 
 ```swift,linenums=true
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
